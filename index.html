@@ -81,7 +81,7 @@ h1{font-family:Georgia,serif;font-size:clamp(54px,8vw,102px);line-height:.9;lett
 .num{font-family:Georgia,serif;color:#d7a735;font-size:34px}.value h3{margin:14px 0 8px;font-family:Georgia,serif;font-size:21px}.value p{font-size:13px;color:var(--muted);line-height:1.6}
 
 .banner{margin:0 5% 100px;border-radius:35px;padding:65px;position:relative;overflow:hidden;background:linear-gradient(110deg,#7b090e,#bd191e);color:#fff}
-.banner:after{content:"?";position:absolute;font-size:330px;right:-20px;top:-100px;color:rgba(255,255,255,.05);transform:rotate(18deg)}
+.banner:after{content:"";position:absolute;font-size:330px;right:-20px;top:-100px;color:rgba(255,255,255,.05);transform:rotate(18deg)}
 .banner h2{font-family:Georgia,serif;font-size:clamp(36px,5vw,65px);max-width:650px;line-height:1}.banner p{margin:18px 0 25px;color:#ffe2d5;max-width:580px;line-height:1.7}
 
 .contact{background:#fff}
@@ -96,16 +96,53 @@ footer{background:#1d0909;color:#d9c7bf;padding:45px 5%;display:flex;justify-con
 .toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,20px);background:#24100f;color:#fff;padding:14px 20px;border-radius:999px;opacity:0;pointer-events:none;transition:.3s;z-index:100;font-size:14px}.toast.show{opacity:1;transform:translate(-50%,0)}
 
 @media(max-width:850px){
- .navlinks,.navcta{display:none}.menu{display:block}
- .hero-inner,.story-inner,.contact-box{grid-template-columns:1fr}.hero{padding-bottom:60px}.hero-inner{gap:15px}.hero-art{height:420px}.plate{width:350px;height:350px}
- .grid{grid-template-columns:1fr 1fr}.values{grid-template-columns:1fr 1fr}.products-head{display:block}.products-head .subtitle{margin-bottom:20px}
- .banner{padding:40px 28px}
+ .nav{padding:14px 5%}
+ .navlinks,.navcta{display:none}
+ .menu{display:flex;align-items:center;justify-content:center;width:44px;height:44px;font-size:30px;line-height:1;cursor:pointer}
+ .hero{min-height:auto;padding:0 0 55px}
+ .hero-inner,.story-inner,.contact-box{grid-template-columns:1fr}
+ .hero-inner{width:min(100% - 36px,620px);gap:8px;padding-top:105px}
+ .hero-inner > .reveal:first-child{z-index:3}
+ .hero-art{height:330px;margin-top:0}
+ .plate{width:min(300px,78vw);height:min(300px,78vw)}
+ .float{font-size:10px;padding:9px 11px;border-radius:14px;white-space:nowrap}
+ .f1{top:3%;right:2%}.f2{bottom:5%;left:0}.f3{top:42%;right:-1%}
+ .grid{grid-template-columns:1fr 1fr}
+ .values{grid-template-columns:1fr 1fr}
+ .products-head{display:block}.products-head .subtitle{margin-bottom:20px}
+ .banner{padding:40px 28px;margin-left:5%;margin-right:5%}
  footer{flex-direction:column;align-items:flex-start}
 }
+
 @media(max-width:560px){
- .grid,.values{grid-template-columns:1fr}.section{padding:80px 5%}.hero-inner{padding-top:100px}
- h1{font-size:57px}.hero p{font-size:16px}.hero-art{height:360px}.plate{width:285px;height:285px}.float{font-size:11px;padding:10px 12px}.f3{right:0}
- .story-inner{padding:80px 5%;gap:45px}.seal{width:220px;height:220px}
+ .nav{padding:12px 18px}
+ .logo{font-size:16px;letter-spacing:.06em;max-width:240px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ .menu{width:42px;height:42px;font-size:28px}
+ .hero-inner{width:calc(100% - 36px);padding-top:92px;gap:0}
+ .kicker{font-size:10px;letter-spacing:.16em;margin-bottom:16px}
+ .kicker:before{width:26px}
+ h1{font-size:clamp(46px,14vw,60px);line-height:.92;margin-bottom:20px;letter-spacing:-.045em}
+ .hero p{font-size:15px;line-height:1.6}
+ .actions{margin-top:24px;gap:10px}
+ .btn{width:100%;justify-content:center;padding:14px 18px}
+ .hero-art{height:300px;margin-top:8px}
+ .plate{width:250px;height:250px;border-width:7px}
+ .snack:after{font-size:16px}
+ .float{font-size:9px;padding:8px 9px;border-radius:12px}
+ .f1{top:2%;right:0}.f2{bottom:3%;left:0}.f3{top:40%;right:0}
+ .section{padding:72px 5%}
+ .products-head{margin-bottom:30px}
+ .grid,.values{grid-template-columns:1fr;gap:16px}
+ .product-art{height:235px}
+ .card-body{padding:20px}
+ .card h3{font-size:25px}
+ .story-inner{padding:72px 5%;gap:40px}
+ .quote{font-size:30px}
+ .seal{width:205px;height:205px}
+ .banner{padding:34px 22px;margin-bottom:72px;border-radius:25px}
+ .banner h2{font-size:40px}
+ .contact-box{gap:30px}
+ footer{padding:38px 5%}
 }
 </style>
 </head>
@@ -117,7 +154,7 @@ footer{background:#1d0909;color:#d9c7bf;padding:45px 5%;display:flex;justify-con
     <a href="#home">Home</a><a href="#products">Products</a><a href="#story">Our Story</a><a href="#quality">Quality</a><a href="#contact">Contact</a>
   </div>
   <a class="navcta" href="#contact">GET IN TOUCH</a>
-  <button class="menu" aria-label="Open menu" onclick="toggleMenu()">?</button>
+  <button class="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
 </nav>
 
 <header class="hero" id="home">
@@ -143,9 +180,9 @@ footer{background:#1d0909;color:#d9c7bf;padding:45px 5%;display:flex;justify-con
   <p class="subtitle">A growing collection of Indian favourites — made to bring the perfect balance of flavour, texture and crunch to every bite.</p>
  </div>
  <div class="grid">
-  <article class="card reveal"><div class="product-art"><div class="pack"><small>SHREEPATI</small><strong>BHujia</strong><span>TRADITIONAL FLAVOUR</span></div></div><div class="card-body"><span class="tag">Classic</span><h3>Aloo Bhujia</h3><p>Fine, crisp strands with a deliciously spiced Indian kick.</p><a class="learn" href="#contact">ENQUIRE ?</a></div></article>
-  <article class="card reveal"><div class="product-art" style="background:linear-gradient(145deg,#fff0d0,#edb65b)"><div class="pack" style="transform:rotate(4deg);background:linear-gradient(160deg,#b8750e,#7d3d06)"><small>SHREEPATI</small><strong>SEV</strong><span>RICH • CRISPY • BOLD</span></div></div><div class="card-body"><span class="tag">Signature</span><h3>Special Sev</h3><p>Golden, crunchy sev crafted for chai-time, parties and everything between.</p><a class="learn" href="#contact">ENQUIRE ?</a></div></article>
-  <article class="card reveal"><div class="product-art" style="background:linear-gradient(145deg,#ffe9d0,#d9a84d)"><div class="pack" style="transform:rotate(-2deg);background:linear-gradient(160deg,#8f1118,#4c070b)"><small>SHREEPATI</small><strong>MIXTURE</strong><span>EVERY BITE • A SURPRISE</span></div></div><div class="card-body"><span class="tag">Bestseller</span><h3>Classic Mixture</h3><p>A lively mix of textures, spices and crunch that keeps you reaching back.</p><a class="learn" href="#contact">ENQUIRE ?</a></div></article>
+  <article class="card reveal"><div class="product-art"><div class="pack"><small>SHREEPATI</small><strong>BHujia</strong><span>TRADITIONAL FLAVOUR</span></div></div><div class="card-body"><span class="tag">Classic</span><h3>Aloo Bhujia</h3><p>Fine, crisp strands with a deliciously spiced Indian kick.</p><a class="learn" href="#contact">ENQUIRE</a></div></article>
+  <article class="card reveal"><div class="product-art" style="background:linear-gradient(145deg,#fff0d0,#edb65b)"><div class="pack" style="transform:rotate(4deg);background:linear-gradient(160deg,#b8750e,#7d3d06)"><small>SHREEPATI</small><strong>SEV</strong><span>RICH • CRISPY • BOLD</span></div></div><div class="card-body"><span class="tag">Signature</span><h3>Special Sev</h3><p>Golden, crunchy sev crafted for chai-time, parties and everything between.</p><a class="learn" href="#contact">ENQUIRE</a></div></article>
+  <article class="card reveal"><div class="product-art" style="background:linear-gradient(145deg,#ffe9d0,#d9a84d)"><div class="pack" style="transform:rotate(-2deg);background:linear-gradient(160deg,#8f1118,#4c070b)"><small>SHREEPATI</small><strong>MIXTURE</strong><span>EVERY BITE • A SURPRISE</span></div></div><div class="card-body"><span class="tag">Bestseller</span><h3>Classic Mixture</h3><p>A lively mix of textures, spices and crunch that keeps you reaching back.</p><a class="learn" href="#contact">ENQUIRE</a></div></article>
  </div>
 </section>
 
@@ -206,11 +243,19 @@ const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecti
 document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
 function toggleMenu(){
  const links=document.querySelector('.navlinks');
- const open=links.style.display==='flex';
- links.style.display=open?'none':'flex';
- links.style.position='absolute';links.style.top='68px';links.style.right='5%';
- links.style.flexDirection='column';links.style.background='rgba(255,248,234,.98)';
- links.style.color='var(--ink)';links.style.padding='18px';links.style.borderRadius='18px';
+ const open=links.classList.toggle('mobile-open');
+ links.style.display=open?'flex':'none';
+ links.style.position='absolute';
+ links.style.top='68px';
+ links.style.right='5%';
+ links.style.minWidth='190px';
+ links.style.flexDirection='column';
+ links.style.gap='16px';
+ links.style.background='rgba(255,248,234,.98)';
+ links.style.color='var(--ink)';
+ links.style.padding='18px';
+ links.style.borderRadius='18px';
+ links.style.boxShadow='0 15px 40px rgba(50,20,10,.16)';
 }
 function sendMessage(e){
  e.preventDefault();
